@@ -1,5 +1,13 @@
 import Simulador from "@/components/Simulador";
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elemName: string]: any;
+    }
+  }
+}
+
 const etapas = [
   {
     titulo: "O radar ilumina o tubo",
