@@ -88,7 +88,7 @@ export default function Simulador() {
   const rodandoRef = useRef(rodando);
   rodandoRef.current = rodando;
 
-  const [escala, setEscala] = useState(30);
+  const [escala, setEscala] = useState(1);
   const escalaRef = useRef(escala);
   escalaRef.current = escala;
 
