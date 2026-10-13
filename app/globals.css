@@ -383,9 +383,9 @@ canvas {
 
 .m-linha {
   display: grid;
-  grid-template-columns: 1fr auto 3.6em;
+  grid-template-columns: minmax(0, 1fr) auto minmax(3.6em, auto);
   align-items: baseline;
-  gap: 8px;
+  column-gap: 8px;
   padding: 7px 0;
   border-bottom: 1px solid var(--linha-cab);
   font-size: 0.86rem;
@@ -400,13 +400,20 @@ canvas {
   font-variant-numeric: tabular-nums;
 }
 
+.m-linha strong,
+.m-linha small {
+  white-space: nowrap;
+  text-align: right;
+}
+
 .m-linha small {
   font-size: 0.78rem;
+  text-align: left;
 }
 
 .m-destaque strong {
-  font-size: 2.3rem;
-  line-height: 1;
+  font-size: clamp(1.7rem, 7vw, 2.3rem);
+  line-height: 1.1;
   color: var(--mostarda);
 }
 
