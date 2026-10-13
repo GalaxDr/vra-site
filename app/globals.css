@@ -382,36 +382,43 @@ canvas {
 }
 
 .m-linha {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(3.6em, auto);
+  /* flex + largura minima em ch: o grid com coluna "auto" nao era
+     recalculado no Chrome mobile quando so o texto do valor mudava */
+  display: flex;
   align-items: baseline;
-  column-gap: 8px;
+  gap: 8px;
   padding: 7px 0;
   border-bottom: 1px solid var(--linha-cab);
   font-size: 0.86rem;
   color: var(--texto-cab-2);
 }
 
+.m-linha span {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .m-linha strong {
+  flex: none;
+  min-width: 7ch;
   font-family: var(--mono);
   font-weight: 500;
   font-size: 1.12rem;
   color: var(--texto-cab);
   font-variant-numeric: tabular-nums;
-}
-
-.m-linha strong,
-.m-linha small {
   white-space: nowrap;
   text-align: right;
 }
 
 .m-linha small {
+  flex: none;
+  width: 3.6em;
   font-size: 0.78rem;
-  text-align: left;
+  white-space: nowrap;
 }
 
 .m-destaque strong {
+  min-width: 4ch;
   font-size: clamp(1.7rem, 7vw, 2.3rem);
   line-height: 1.1;
   color: var(--mostarda);
